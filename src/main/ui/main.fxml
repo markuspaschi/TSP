@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXSlider?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import java.net.URL?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ui.Controller">
+    <children>
+      <JFXTabPane layoutX="143.0" layoutY="48.0" prefWidth="1080.0" tabMinWidth="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <tabs>
+            <Tab text="Allgemein">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0">
+                     <children>
+                        <Label alignment="TOP_LEFT" layoutX="10.0" layoutY="14.0" text="Allgemeine Einstellungen" textFill="#5264ae" wrapText="true" AnchorPane.leftAnchor="10.0">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="10.0" layoutY="77.0" text="Anzahl der Städte:" textFill="#5264ae" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <JFXSlider fx:id="citySlider" blockIncrement="5.0" layoutX="10.0" layoutY="113.0" max="200.0" prefHeight="14.0" prefWidth="179.0" style="-jfx-default-thumb: #5264AE;" value="100.0" AnchorPane.leftAnchor="10.0" />
+                        <JFXButton fx:id="generateCitiesButton" buttonType="RAISED" layoutX="10.0" layoutY="145.0" prefHeight="25.0" prefWidth="179.0" style="-fx-text-fill:WHITE;-fx-background-color:#5264AE;-fx-font-size:14px;" text="Städte zufällig generieren" wrapText="true" AnchorPane.leftAnchor="10.0" />
+                                <LineChart fx:id="lineChart" layoutX="271.0" layoutY="18.0" prefHeight="667.0" prefWidth="809.0" title="Traveling Salesman Problem" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                                    <xAxis>
+                                        <NumberAxis side="BOTTOM" />
+                                    </xAxis>
+                                    <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                    </yAxis>
+                                </LineChart>
+                        <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="192.0" prefHeight="157.0" prefWidth="239.0" text="Die zufällig generierten Städte werden für alle Algorithmen verwendet. Demenstsprechend können die unterschiedlichen Distanzen unter dem Reiter 'Ergebnisse' betrachtet werden." textFill="#5264ae" wrapText="true">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Greedy Alg.">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="TOP_LEFT" text="Greedy Algorithmus" textFill="#5264ae" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="10.0" layoutY="59.0" prefHeight="53.0" prefWidth="239.0" text="Nehme von einem Punkt zum nächsten stets den kürzesten Pfad!" textFill="#5264ae" wrapText="true">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <JFXButton fx:id="greedyButton" buttonType="RAISED" layoutX="10.0" layoutY="210.0" prefHeight="25.0" prefWidth="200.0" style="-fx-text-fill:WHITE;-fx-background-color:#5264AE;-fx-font-size:14px;" text="Start" wrapText="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="300.0" />
+                        <LineChart fx:id="greedyLinechart" prefHeight="667.0" prefWidth="809.0" title="Traveling Salesman Problem" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                           <xAxis>
+                              <NumberAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </LineChart>
+                        <Label alignment="TOP_LEFT" prefHeight="20.0" prefWidth="200.0" text="Iterationen:" textFill="#5264ae" wrapText="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="160.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="greedyIteration" alignment="TOP_LEFT" prefHeight="20.0" prefWidth="200.0" text="unendlich" textFill="#009688" wrapText="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="190.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" prefHeight="20.0" prefWidth="200.0" text="Distanz:" textFill="#5264ae" wrapText="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="230.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="greedyDistance" alignment="TOP_LEFT" layoutY="121.0" prefHeight="20.0" prefWidth="200.0" text="unendlich" textFill="#009688" wrapText="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="260.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Two Opt Alg.">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXButton fx:id="twoOptButton" buttonType="RAISED" layoutX="14.0" layoutY="398.0" prefHeight="25.0" prefWidth="200.0" style="-fx-text-fill:WHITE;-fx-background-color:#5264AE;-fx-font-size:14px;" text="Start" wrapText="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="398.0" />
+                        <LineChart fx:id="twoOptLineChart" prefHeight="667.0" prefWidth="809.0" title="Traveling Salesman Problem" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="20.0">
+                           <xAxis>
+                              <NumberAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </LineChart>
+                        <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" text="2 Opt-Tour" textFill="#5264ae" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="72.0" prefHeight="76.0" prefWidth="239.0" text="Tausche zwei Kanten miteinander aus. Ist die neue Tour-Distanz kürzer als die vorherige, behalte Änderungen." textFill="#5264ae" wrapText="true">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="13.0" layoutY="166.0" prefHeight="20.0" prefWidth="200.0" text="Iterationen:" textFill="#5264ae" wrapText="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="160.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="twoOptIteration" alignment="TOP_LEFT" layoutX="13.0" layoutY="193.0" prefHeight="20.0" prefWidth="200.0" text="unendlich" textFill="#009688" wrapText="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="190.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="13.0" layoutY="234.0" prefHeight="20.0" prefWidth="200.0" text="Distanz:" textFill="#5264ae" wrapText="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="230.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="twoOptDistance" alignment="TOP_LEFT" layoutX="13.0" layoutY="262.0" prefHeight="20.0" prefWidth="200.0" text="unendlich" textFill="#009688" wrapText="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="260.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="310.0" prefHeight="43.0" prefWidth="239.0" text="Aktuelles Optimum erreicht bei Iteration:" textFill="#5264ae" wrapText="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="310.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="twoOptCurrentOptimumIteration" alignment="TOP_LEFT" layoutX="13.0" layoutY="362.0" prefHeight="20.0" prefWidth="200.0" text="unendlich" textFill="#009688" wrapText="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="360.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Evolutionäre Alg.">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXButton fx:id="citySwapButton" buttonType="RAISED" layoutX="14.0" layoutY="141.0" prefHeight="25.0" prefWidth="200.0" style="-fx-text-fill:WHITE;-fx-background-color:#5264AE;-fx-font-size:14px;" text="Start" wrapText="true" />
+                        <LineChart fx:id="citySwapLineChart" prefHeight="667.0" prefWidth="809.0" title="Traveling Salesman Problem" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                           <xAxis>
+                              <NumberAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </LineChart>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Neural Gas">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Ergebnisse">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+    </children>
+
+    <stylesheets>
+        <URL value="@tsp.css" />
+    </stylesheets>
+
+</AnchorPane>
